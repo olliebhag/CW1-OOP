@@ -98,6 +98,12 @@ public class XX007 {
                 System.out.print("Enter homework marks: ");
                 int homeworkInput = input.nextInt();
 
+                while (homeworkInput < 0 || homeworkInput > 100) { // input validation from http://www.java2s.com/example/java-book/input-validation-with-while-loop.html
+                    System.out.println("That number is invalid.");
+                    System.out.print("Enter a number in the range of 1 through 100: ");
+                    homeworkInput = input.nextInt();
+
+                }
                 homeworkMarks[j] = homeworkInput; //places the homework input in the current index of the array
             }
             Arrays.sort(homeworkMarks); // sorts the array in descending order
@@ -105,8 +111,19 @@ public class XX007 {
 
             System.out.print("Enter the mark for the Interim Test: ");
             int interimTest = input.nextInt();
+            while (interimTest < 0 || interimTest > 100) {
+                System.out.println("That number is invalid.");
+                System.out.print("Enter a number in the range of 1 through 100: ");
+                interimTest = input.nextInt();
+            }
+
             System.out.print("Enter the mark for the exam: ");
             int exam = input.nextInt();
+            while (exam < 0 || exam > 100) {
+                System.out.println("That number is invalid.");
+                System.out.print("Enter a number in the range of 1 through 100: ");
+                exam = input.nextInt();
+            }
 
             int bestHomework = homeworkMarks[2] + homeworkMarks[3] + homeworkMarks[4]; // gets the 3 highest homework marks from the array
             double coursework = ((bestHomework / 3) * (1.0 / 3.0)) + (interimTest * (2.0 / 3.0));
