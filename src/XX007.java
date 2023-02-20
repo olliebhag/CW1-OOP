@@ -98,12 +98,9 @@ public class XX007 {
                 System.out.print("Enter homework marks: ");
                 int homeworkInput = input.nextInt();
 
-                if (homeworkInput < 0) {
-                    break;
-                }
                 homeworkMarks[j] = homeworkInput; //places the homework input in the current index of the array
             }
-            Arrays.sort(homeworkMarks);
+            Arrays.sort(homeworkMarks); // sorts the array in descending order
 
 
             System.out.print("Enter the mark for the Interim Test: ");
@@ -111,13 +108,14 @@ public class XX007 {
             System.out.print("Enter the mark for the exam: ");
             int exam = input.nextInt();
 
-            int bestHomework = homeworkMarks[2] + homeworkMarks[3] + homeworkMarks[4];
+            int bestHomework = homeworkMarks[2] + homeworkMarks[3] + homeworkMarks[4]; // gets the 3 highest homework marks from the array
             double coursework = ((bestHomework / 3) * (1.0 / 3.0)) + (interimTest * (2.0 / 3.0));
             double finalMark = (coursework * 0.3) + (exam * 0.7);
 
-            students[count] = new Student();
+            students[count] = new Student(); // creates a new student in the current index of the array
 
-            students[count].setId(count + 1);
+            // sets each input to the correct attribute
+            students[count].setId(count + 1); // count starts at 0 so incremented to start at 1 for display purposes
             students[count].setFirstName(firstName);
             students[count].setSurname(surname);
             students[count].setHomeworkMarks(homeworkMarks);
@@ -126,16 +124,16 @@ public class XX007 {
             students[count].setExam(exam);
             students[count].setFinalMark(finalMark);
 
-            System.out.println(students[count].getId() + " " + students[count].getFirstName() + " " + students[count].getSurname() + " " + students[count].getFinalMark());
         }
 
 //        from https://www.theserverside.com/blog/Coffee-Talk-Java-News-Stories-and-Opinions/Java-print-table-format-printf-chart-console-scanner-println-line
         System.out.println("Number of students: " + numStudents);
         System.out.printf("| %2s | %8s | %10s | %6s | %6s | %6s", "ID", "Name", "Surname", "Coursework", "Exam", "FinalMark");
+        // prints table headings
 
-        for (int count = 0; count < numStudents; count++) {
+        for (int count = 0; count < numStudents; count++) { // loops through students array
             System.out.println();
-            System.out.printf("| %2s | %8s | %10s | %10s | %6s | %6s",
+            System.out.printf("| %2s | %8s | %10s | %10s | %6s | %6s", //prints student attributes with spaces surrounding them
                     students[count].getId(),
                     students[count].getFirstName() ,
                     students[count].getSurname(),
@@ -151,5 +149,4 @@ public class XX007 {
 
 
 // comment through the code
-// fix weighted coursework
 // max 100
